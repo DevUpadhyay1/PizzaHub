@@ -13,7 +13,11 @@ import EmailVerification from "./components/auth/EmailVerification"; // Your ema
 import Login from "./components/auth/Login";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import ResetPassword from "./components/auth/ResetPassword";
-import UserPizzaDashboard from "./components/auth/user/UserPizzaDashboard";
+import UserPizzaDashboard from "./components/user/UserPizzaDashboard";
+import PizzaInventorySystem from "./components/admin/PizzaInventorySystem";
+import AdminRoute from "./components/admin/AdminRoutes";
+import CustomPizzaBuilder from "./components/user/CustomPizzaBuilder";
+import PizzaCart from "./components/cart/PizzaCart";
 
 // import AdminDashboard from "./components/auth/main/AdminPizzaDashboard";
 
@@ -50,9 +54,19 @@ function App() {
           <Route path="/reset-password" element={<ResetPassword />} />
           {/* Protected routes */}
           <Route path="/dashboard" element={<UserPizzaDashboard />} />
-          {/* <Route path="/adashboard" element={<AdminDashboard />} /> */}
+          <Route
+            path="/adashboard"
+            element={
+              <AdminRoute>
+                <PizzaInventorySystem />
+              </AdminRoute>
+            }
+          />
 
+          {/* CustomPizzaBuilderRoutes */}
+          <Route path="/custom-pizza" element={<CustomPizzaBuilder />} />
           {/* Redirect /home to register as well */}
+          <Route path="/cart" element={<PizzaCart/>} />
           {/* <Route path="/home" element={<Navigate to="/register" replace />} /> */}
 
           {/* 404 Not Found */}

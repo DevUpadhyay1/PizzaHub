@@ -77,6 +77,14 @@ const Login = () => {
 
       localStorage.setItem("token", token);
 
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          email: decoded.email,
+          role: decoded.role,
+        })
+      );
+
       // Mock response
       //const response = { data: { token: 'mock-jwt-token', message: 'Login successful!' } };
 
